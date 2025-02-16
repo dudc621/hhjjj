@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur de Points de Ping Pong</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .container {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #007BFF;
+    }
+    label {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+    input {
+      font-size: 16px;
+      padding: 8px;
+      width: 100px;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Calculateur de Points de Ping Pong</h1>
+  
+  <div class="container">
+    <label for="matchs-gagnes">Nombre de matchs gagnés :</label>
+    <input type="number" id="matchs-gagnes" min="0" placeholder="0">
+    <button onclick="calculerPoints()">Calculer les Points</button>
+
+    <div class="result" id="resultat">
+      <!-- Le résultat sera affiché ici -->
+    </div>
+  </div>
+
+  <script>
+    // Fonction équivalente à celle en Python
+    function calculerPoints() {
+      const matchsGagnes = parseInt(document.getElementById('matchs-gagnes').value);
+      const pointsParMatch = 10;  // Par défaut, chaque match vaut 10 points
+
+      // Calcul des points totaux
+      const pointsTotaux = matchsGagnes * pointsParMatch;
+
+      // Affichage du résultat
+      const resultatElement = document.getElementById('resultat');
+      if (isNaN(matchsGagnes) || matchsGagnes < 0) {
+        resultatElement.innerHTML = 'Veuillez entrer un nombre valide de matchs gagnés.';
+      } else {
+        resultatElement.innerHTML = `Le joueur a gagné ${matchsGagnes} matchs et a donc ${pointsTotaux} points.`;
+      }
+    }
+  </script>
+
+</body>
+</html>
